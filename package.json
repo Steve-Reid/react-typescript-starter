@@ -1,0 +1,9 @@
+{
+  "name": "my-react-starter",
+  "version": "1.0.0",
+  "description": "React Typescript Webpack Starter Project with Airbnb ESLint config and Prettier",
+  "main": "index.js",
+  "author": "Steve Reid",
+  "license": "ISC",
+  "private": false
+}
