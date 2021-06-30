@@ -1,11 +1,14 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.join(__dirname, 'src', 'index.js'),
+  entry: './src/index.tsx',
   output: { path: path.join(__dirname, 'build'), filename: 'index.bundle.js' },
   mode: process.env.NODE_ENV || 'development',
-  resolve: { modules: [path.resolve(__dirname, 'src'), 'node_modules'] },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   devServer: { contentBase: path.join(__dirname, 'src') },
   module: {
     rules: [
@@ -13,6 +16,11 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: ['ts-loader'],
       },
       {
         test: /\.(css|scss)$/,
